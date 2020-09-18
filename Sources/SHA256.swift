@@ -29,7 +29,7 @@ public extension Data {
     func sha256() -> Data {
         let bytes: Array<UInt8> = Array(self)
         let result = SHA256(bytes).calculate32()
-        return Data(bytes: result)
+        return Data(result)
     }
 }
 

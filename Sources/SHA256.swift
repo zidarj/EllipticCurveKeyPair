@@ -199,10 +199,8 @@ internal func bitPadding(to data: Array<UInt8>, blockSize: Int, allowance: Int =
 }
 
 internal struct BytesSequence<D: RandomAccessCollection>: Sequence where D.Iterator.Element == UInt8,
-    D.IndexDistance == Int,
-    D.SubSequence.IndexDistance == Int,
 D.Index == Int {
-    let chunkSize: D.IndexDistance
+    let chunkSize: D.Index.IntegerLiteralType
     let data: D
     
     func makeIterator() -> AnyIterator<D.SubSequence> {
